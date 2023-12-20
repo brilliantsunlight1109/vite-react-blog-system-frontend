@@ -70,7 +70,7 @@ const Coupon = () => {
             </div>
           </header>
           <main>
-            <div className="px-16 max-w-full py-6 sm:px-6 lg:px-8 bg-[#9ca3af0d] min-h-[50.6rem] max-md:px-8">
+            <div className="px-16 max-w-full py-6 sm:px-6 lg:px-8 bg-[#9ca3af0d] min-h-[50.6rem] max-md:px-4">
               <CouponList />
             </div>
           </main>
