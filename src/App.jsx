@@ -15,6 +15,7 @@ import UpdateBlog from "./pages/blog/updateBlog";
 import Admin from "./pages/admin/admin";
 import UpdateAdmin from "./pages/admin/updateAdmin";
 import AddCoupon from "./pages/coupon/addCoupon";
+import UpdateCoupon from "./pages/coupon/updateCoupon";
 import Stylist from "./pages/stylist/stylist";
 import AddStylist from "./pages/stylist/addStylist";
 import UpdateStylist from "./pages/stylist/updateStylist";
@@ -41,6 +42,7 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/update-admin" element={<UpdateAdmin />} />
           <Route path="/add-coupon" element={<AddCoupon />} />
+          <Route path="/update-coupon" element={<UpdateCoupon />} />
           <Route path="/stylist" element={<Stylist />} />
           <Route path="/add-stylist" element={<AddStylist />} />
           <Route path="/update-stylist" element={<UpdateStylist />} />

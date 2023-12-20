@@ -71,11 +71,11 @@ const General = () => {
   const store_name = useSelector((state) => state.store_name);
   const store_address = useSelector((state) => state.store_address);
 
-  console.log("redux-style_tokyo_id: ", style_tokyo_id);
-  console.log("redux-userSalonId: ", userSalonId);
-  console.log("redux-Id: ", Id);
-  console.log("redux-store_name: ", store_name);
-  console.log("redux-store_address: ", store_address);
+  // console.log("redux-style_tokyo_id: ", style_tokyo_id);
+  // console.log("redux-userSalonId: ", userSalonId);
+  // console.log("redux-Id: ", Id);
+  // console.log("redux-store_name: ", store_name);
+  // console.log("redux-store_address: ", store_address);
   const id = Id;
 
   useEffect(() => {

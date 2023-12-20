@@ -211,7 +211,7 @@ const UpdateAdmin = () => {
                   <form onSubmit={handleSubmit}>
                     <Card className="flex justify-center w-full">
                       <CardContent className="rounded-tr-none">
-                        <div className="flex justify-content pl-20 pb-3 pt-3 w-full max-md:w-[17rem] flex-col max-md:px-0">
+                        <div className="flex justify-content pb-3 pt-3 w-full max-md:w-[17rem] flex-col max-md:px-0">
                           <Box>
                             <div className="mt-3 mb-3">
                               店舗名

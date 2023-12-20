@@ -92,10 +92,10 @@ const Stylenav = () => {
         id,
         permission,
       } = data;
-      console.log("style-style_tokyo_id: ", style_tokyo_id);
-      console.log("style-user_salon_id: ", user_salon_id);
-      console.log("style-id:", id);
-      console.log("permission: ", permission);
+      // console.log("style-style_tokyo_id: ", style_tokyo_id);
+      // console.log("style-user_salon_id: ", user_salon_id);
+      // console.log("style-id:", id);
+      // console.log("permission: ", permission);
       if (permission == "manager") {
         const isAdminPageExists = navigation.find(
           (page) => page.name === "管理者ページ"
@@ -231,7 +231,7 @@ const Stylenav = () => {
                                   onClick={YourProfile}
                                   className="block text-left w-full px-4 py-2 text-lg text-gray-700 active:bg-gray-300"
                                 >
-                                  プロフィール
+                                  設定
                                 </button>
                               </Menu.Item>
                               {/* <Menu.Item>
@@ -336,7 +336,7 @@ const Stylenav = () => {
                         onClick={YourProfile}
                         className="block text-left w-full rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white hover:no-underline"
                       >
-                        プロフィール
+                        設定
                       </Disclosure.Button>
                       <Disclosure.Button
                         onClick={Logout}

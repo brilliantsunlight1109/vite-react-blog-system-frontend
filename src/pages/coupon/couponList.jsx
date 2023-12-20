@@ -58,6 +58,7 @@ import rtlPlugin from "stylis-plugin-rtl";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
+import Coupon from "./coupon";
 
 const CouponList = () => {
   const [coupon, setCoupon] = useState([]);
@@ -65,6 +66,20 @@ const CouponList = () => {
   const addCoupon = () => {
     navigate("/add-coupon");
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/coupon");
+        setCoupon(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const existingTheme = useTheme();
 
   const theme = useMemo(
@@ -85,14 +100,65 @@ const CouponList = () => {
       field: "image",
       headerName: "写真",
       width: 160,
+      align: "center",
+      headerAlign: "center",
+      renderCell: (params) => (
+        <img
+          src={params.row.image}
+          alt=""
+          width={params.row.imageWidth}
+          height={params.row.imageHeight}
+        />
+      ),
     },
-  ];
-  const rows = [
     {
-      id: 1,
-      image: "d",
+      field: "type",
+      headerName: "種別",
+      type: "text",
+      width: 120,
+      renderCell: (params) => (
+        <Link to={`/update-coupon?id=${params.row._id}`}>{params.value}</Link>
+      ),
+    },
+    {
+      field: "coupon_name",
+      headerName: "クーポン名",
+      type: "text",
+      width: 350,
+      renderCell: (params) => (
+        <Link to={`/update-coupon?id=${params.row._id}`}>{params.value}</Link>
+      ),
+    },
+    {
+      field: "coupon_content",
+      headerName: "クーポン内容",
+      type: "text",
+      width: 300,
+      renderCell: (params) => (
+        <Link to={`/update-coupon?id=${params.row._id}`}>{params.value}</Link>
+      ),
+    },
+    {
+      field: "price",
+      headerName: "価格（税込）",
+      type: "text",
+      width: 120,
+      renderCell: (params) => (
+        <Link to={`/update-coupon?id=${params.row._id}`}>{params.value}</Link>
+      ),
     },
   ];
+  const rows = coupon.map((item, index) => ({
+    id: index + 1,
+    image: item.uploadImage,
+    type: item.type,
+    coupon_name: item.coupon_name,
+    coupon_content: item.coupon_content,
+    price: item.price,
+    imageWidth: 100,
+    imageHeight: 100,
+    _id: item._id,
+  }));
   return (
     <>
       <div className="container-xl min-h-full">
@@ -107,8 +173,8 @@ const CouponList = () => {
             </Button>
           </Box>
         </div>
-        <div className="px-12 pt-16 max-md:px-4">
-          <div style={{ height: "100%", width: "100%" }}>
+        <div className="px-12 max-w-7xl mx-auto pt-16 max-md:px-4">
+          <div coupon={{ height: "100%", width: "100%" }}>
             <ThemeProvider theme={theme}>
               <DataGrid
                 rows={rows}
